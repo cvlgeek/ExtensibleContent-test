@@ -6,10 +6,10 @@
            xsi:type="ContentApp">
   <Id>12345678-1234-1234-1234-123456789abc</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Humongous Insurance</ProviderName>
+  <ProviderName>PK-421</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Humongous Insurance Agents Center" />
-  <Description DefaultValue="Excel Content Add-in for managing insurance prospects." />
+  <DisplayName DefaultValue="Extensible Content" />
+  <Description DefaultValue="Embeddable browser frame object." />
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png" />
   <SupportUrl DefaultValue="https://github.com/" />
