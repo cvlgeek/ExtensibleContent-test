@@ -9,14 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extensible Content</title>
     
-    <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
-    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.min.css">
-    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.components.min.css">
+    <!-- Fluent UI. -->
+    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css">
     
     <!-- Office JavaScript API. -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 </head>
 <body>
-    hello world
+    <div id="xContent-display"></div>
+    <div id="xContent-settings">
+        <fluent-card>
+            Hello World
+        </fluent-card>
+    </div>
 </body>
 </html>
