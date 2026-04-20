@@ -16,12 +16,92 @@
     <!-- Office JavaScript API. -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 </head>
-<body>
-    <div id="xContent-display"></div>
-    <div id="xContent-settings">
-        <fluent-card>
-            Hello World
-        </fluent-card>
+<body class="ms-Fabric">
+    <div id="xc-context" class="hidden">
+        <fluent-menu>
+            <fluent-menu-item onclick="xc.show('xc-settings')">Edit</fluent-menu-item>
+            <fluent-divider></fluent-divider>
+            <fluent-menu-item>Refresh</fluent-menu-item>
+            <fluent-divider></fluent-divider>
+            <fluent-menu-item>Save As</fluent-menu-item>
+            <fluent-menu-item>Print</fluent-menu-item>
+            <fluent-divider></fluent-divider>
+            <fluent-menu-item>Inspect</fluent-menu-item>
+        </fluent-menu>
     </div>
+    <div id="xc-display" class="xc-view">
+        <div id="xc-display-no-content" style="display:grid; place-items: center;">
+            No content to display.
+            <br><br>
+            <fluent-button appearance="accent" onclick="xc.toggleView();">Configure</fluent-button>
+        </div>
+    </div>
+    <div id="xc-settings" class="xc-view hidden">
+        <fluent-tabs activeid="xc-content">
+            <fluent-tab id="xc-content-tab">Content</fluent-tab>
+            <fluent-tab id="xc-settings-tab">Settings</fluent-tab>
+            <fluent-tab-panel id="xc-content-panel">
+                <fluent-text-area placeholder="Describe your experience">How was your stay?</fluent-text-area>
+            </fluent-tab-panel>
+            <fluent-tab-panel id="xc-settings-panel">
+                <fieldset>
+                    <legend>Configuration Access</legend>
+                    <fluent-switch>
+                        <span slot="checked-message">On</span>
+                        <span slot="unchecked-message">Off</span>
+                        <label for="cap-switch">Right Click:</label>
+                    </fluent-switch><br>
+                    <fluent-switch>
+                        <span slot="checked-message">On</span>
+                        <span slot="unchecked-message">Off</span>
+                        <label for="cap-switch">Context Menu:</label>
+                    </fluent-switch><br>
+                    <fluent-switch>
+                        <span slot="checked-message">On</span>
+                        <span slot="unchecked-message">Off</span>
+                        <label for="cap-switch">Title Bar:</label>
+                    </fluent-switch><br>
+                    <fluent-switch>
+                        <span slot="checked-message">On</span>
+                        <span slot="unchecked-message">Off</span>
+                        <label for="cap-switch">Hot Key:</label>
+                    </fluent-switch>
+                </fieldset><br>
+                <fieldset>
+                    <legend>Title Bar</legend>
+                    <fluent-switch>
+                        <span slot="checked-message">On</span>
+                        <span slot="unchecked-message">Off</span>
+                        <label for="cap-switch">Display:</label>
+                    </fluent-switch><br>
+                    <label for="cap-switch">Title:</label>
+                    <fluent-text-field placeholder="Extensible Content"></fluent-text-field>
+                </fieldset><br>
+                <fieldset>
+                    <legend>Right Click</legend>
+                    <fluent-switch>
+                        <span slot="checked-message">On</span>
+                        <span slot="unchecked-message">Off</span>
+                        <label for="cap-switch">Display:</label>
+                    </fluent-switch><br>
+                    <label for="cap-switch">Title:</label>
+                    <fluent-text-field placeholder="Extensible Content"></fluent-text-field>
+                </fieldset><br>
+            </fluent-tab-panel>
+        </fluent-tabs>
+    </div>
+    <script>
+/*
+        document.querySelector('body').addEventListener('contextmenu', (event) => {
+            event.preventDefault(); // Prevents the default browser context menu from appearing
+            xc.toggleView();
+        });
+*/
+        var xc = {
+            toggleView: function(){
+                document.querySelectorAll('.xc-view').forEach(function(el){el.classList.toggle('hidden')});
+            },
+        }
+    </script>
 </body>
 </html>
