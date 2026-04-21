@@ -1,5 +1,15 @@
 /* Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license in root of repo. */
 
+/*
+@font-face {
+  font-family: 'FabricMDL2Icons';
+  src: url('./fabricmdl2icons-3.54.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
 html,
 body {
     margin: 0;
@@ -10,3 +20,30 @@ body {
 .hidden{
     display: none;
 }
+fluent-tabs, fluent-tab{
+    min-height: 45px;
+}
+fluent-tabs::part(tablist){
+    padding-left: 80px;
+}
+#xc-configuration-back-button{
+    position:fixed;
+    top: 10px;
+    left: 30px;
+}
+#xc-configuration-save-button{
+    position:fixed;
+    top: 10px;
+    left: calc(100vw - 30px - 32px);
+}
+#xc-configuration-content-panel{
+    height: calc(100vh - 56px);
+}
+.prism-code-editor{
+    margin-top: 7px;
+    margin-left: 2px;
+    width: calc(100vw - calc(2*(8 + (var(--design-unit) * 2 * var(--density))) * 1px));
+    height: calc(100vh - 60px);
+}
+
+

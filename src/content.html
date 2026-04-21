@@ -1,5 +1,4 @@
-<!-- Copyright (c) PK-421. All rights reserved. Licensed under the MIT license.
- See LICENSE in the project root for license information. -->
+<!-- Copyright (c) PK-421. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information. -->
 
 <!DOCTYPE html>
 <html>
@@ -7,14 +6,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extensible Content</title>
-    
-    <!-- Fluent UI. -->
-    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
-    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css">
-    
+
     <!-- Office JavaScript API. -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    
+    <title>Extensible Content</title>
 </head>
 <body class="ms-Fabric">
     <div id="xc-context" class="hidden">
@@ -29,21 +25,21 @@
             <fluent-menu-item>Inspect</fluent-menu-item>
         </fluent-menu>
     </div>
-    <div id="xc-display" class="xc-view">
-        <div id="xc-display-no-content" style="display:grid; place-items: center;">
-            No content to display.
-            <br><br>
-            <fluent-button appearance="accent" onclick="xc.toggleView();">Configure</fluent-button>
-        </div>
-    </div>
-    <div id="xc-settings" class="xc-view hidden">
-        <fluent-tabs activeid="xc-content">
-            <fluent-tab id="xc-content-tab">Content</fluent-tab>
-            <fluent-tab id="xc-settings-tab">Settings</fluent-tab>
-            <fluent-tab-panel id="xc-content-panel">
-                <fluent-text-area placeholder="Describe your experience">How was your stay?</fluent-text-area>
-            </fluent-tab-panel>
-            <fluent-tab-panel id="xc-settings-panel">
+    <div id="xc-display" class="xc-view hidden"></div>
+    <div id="xc-configuration" class="xc-view">
+        <fluent-button id="xc-configuration-back-button" appearance="accent" onclick="xc.toggleView();">
+            <i class="ms-Icon ms-Icon--Back" aria-hidden="true"></i>
+        </fluent-button>
+        <fluent-button id="xc-configuration-save-button" appearance="accent" onclick="xc.saveConfiguration();">
+            <i class="ms-Icon ms-Icon--Save" aria-hidden="true"></i>
+        </fluent-button>
+        <fluent-tabs activeid="xc-configuration-content">
+            <fluent-tab id="xc-configuration-content">Content</fluent-tab>
+            <fluent-tab id="xc-configuration-settings">Settings</fluent-tab>
+
+            <fluent-tab-panel id="xc-configuration-content-panel"></fluent-tab-panel>
+
+            <fluent-tab-panel id="xc-configuration-settings-panel">
                 <fieldset>
                     <legend>Configuration Access</legend>
                     <fluent-switch>
@@ -90,18 +86,5 @@
             </fluent-tab-panel>
         </fluent-tabs>
     </div>
-    <script>
-/*
-        document.querySelector('body').addEventListener('contextmenu', (event) => {
-            event.preventDefault(); // Prevents the default browser context menu from appearing
-            xc.toggleView();
-        });
-*/
-        var xc = {
-            toggleView: function(){
-                document.querySelectorAll('.xc-view').forEach(function(el){el.classList.toggle('hidden')});
-            },
-        }
-    </script>
 </body>
 </html>
